@@ -15,9 +15,7 @@
     </div>
     <div class="container">
         <form action="">
-            <label class="bolder">1. Please select the type of Board for which you would like to assess your readiness
-                to
-                serve:</label>
+            <label class="bolder">1. Please select the type of Board for which you would like to assess your readiness to serve:</label>
             <br>
             <input type="radio" name="board_type" id="nonprofit" value="nonprofit"
                 onchange="selectBoardType(this.value)">
@@ -44,23 +42,23 @@
             privateQuestions = ["Nonprofit board experience", "8+ years of senior leadership",
                 "P&L experience of comparable size", "Deep functional expertise",
                 "People management experience with multiple levels of reports", "Exposure to CEO/board", "NULL"];
-            nonprofitExperience = ["No prior board experience", "Prior nonprofit or for profit work experience", "NULL",
+            nonprofitExperience = ["NULL", "Prior nonprofit or for profit work experience", "NULL",
                 "NULL", "NULL", "NULL", "Volunteer experience with chosen organization or other nonprofits"]
             publicQuestions = ["Private Company board experience", "10-15+ years of senior leadership",
                 "P&L experience of comparable size", "Deep functional expertise in multiple areas",
                 "People management experience with significant organization", "Experience working with CEO/Board",
                 "NULL"];
-            nonprofitCore = ["Basic understanding of nonprofit governance responsibilities", 
+            nonprofitCore = ["Basic understanding of nonprofit governance responsibilities",
                 "Basic understanding of nonprofit fiduciary duties", "Basic understanding of legal concepts and duties",
                 "Understanding of strategy development or execution", "Basic understanding of accounting principles and ability to read financial statements",
                 "Understanding of nonprofit financials(990, state regulations). Basic understanding of nonprofit revenue sources(grants, donors, earned income, government contracts",
-                "Ability to build relationshpis with and advise senior management", "understand the separation and overlap of Board and Management duties",
+                "Ability to build relationshpis with and advise senior management", "Understand the separation and overlap of Board and Management duties",
                 "Ability to provide input on/approve ED compensation and performance", "Comfortable working with all types of diverse talent and all types of stakeholders",
                 "Passion for the nonprofit's mission. Possess/willing to acquire domain knowledge about programs and communities served",
                 "NULL", "Ability to respond to social and political issues", "Understanding of social issues and other ESG issues", "Ability to identify and develop risk mitigation strategies",
                 "Ability to use current technologies and understanding of their impact on operating models", "Energy, tools and network to find a board match"];
             var questionLabel = document.createElement("label");
-            questionLabel.innerHTML = "2. Please check all applicable " + val + " company experience you have:";
+            questionLabel.innerHTML = "2. Please check all applicable " + val + " experience you have:";
             var br = document.createElement("br");
             container.appendChild(questionLabel);
             container.appendChild(br);
@@ -109,7 +107,7 @@
                 var br = document.createElement("br");
                 questionForm.appendChild(br);
                 var questionLabel = document.createElement("label");
-                questionLabel.innerHTML = "3. Please check all applicable " + val + " company skills you have:";
+                questionLabel.innerHTML = "3. Please check all applicable " + val + " skills you have:";
                 br = document.createElement("br");
                 questionForm.appendChild(questionLabel);
                 questionForm.appendChild(br);
