@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> SWB Training</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="header">
+        <br>
+        <a href="https://stanfordwomenonboards.stanford.edu/"><img src="white.webp" alt="swblogo" id="stanfordlogo"></a>
+        <h3>Stanford Women on Boards</h3>
+    </div>
+    <div class="container">
+        <form action="">
+            <label class="bolder">1. Please select the type of Board for which you would like to assess your readiness
+                to
+                serve:</label>
+            <br>
+            <input type="radio" name="board_type" id="nonprofit" value="nonprofit"
+                onchange="selectBoardType(this.value)">
+            <label for="nonprofit">Nonprofit</label><br>
+            <input type="radio" name="board_type" id="private" value="private" onchange="selectBoardType(this.value)">
+            <label for="private">Private Company</label><br>
+            <input type="radio" name="board_type" id="public" value="public" onchange="selectBoardType(this.value)">
+            <label for="public">Public Company</label><br>
+            <br>
+        </form>
+
+
+        <p id="q2"></p>
+    </div>
+    <script>
+        function selectBoardType(val) {
+            var container = document.getElementById('q2');
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            experience = ["board", "work", "pl", "functional", "peopleManagement", "ceoBoard", "volunteer"];
+            coreskills = ["governance", "fiduciary", "legal", "strategy", "financestatement", "finance", "mgmtrelation", "boardvmgmt", "talentmgmt", "dei", "domain", "sharemgmt",
+                "publicrelations", "esg", "risk", "techcomp", "boardsearch"];
+            privateQuestions = ["Nonprofit board experience", "8+ years of senior leadership",
+                "P&L experience of comparable size", "Deep functional expertise",
+                "People management experience with multiple levels of reports", "Exposure to CEO/board", "NULL"];
+            nonprofitExperience = ["No prior board experience", "Prior nonprofit or for profit work experience", "NULL",
+                "NULL", "NULL", "NULL", "Volunteer experience with chosen organization or other nonprofits"]
+            publicQuestions = ["Private Company board experience", "10-15+ years of senior leadership",
+                "P&L experience of comparable size", "Deep functional expertise in multiple areas",
+                "People management experience with significant organization", "Experience working with CEO/Board",
+                "NULL"];
+            nonprofitCore = ["Basic understanding of nonprofit governance responsibilities", 
+                "Basic understanding of nonprofit fiduciary duties", "Basic understanding of legal concepts and duties",
+                "Understanding of strategy development or execution", "Basic understanding of accounting principles and ability to read financial statements",
+                "Understanding of nonprofit financials(990, state regulations). Basic understanding of nonprofit revenue sources(grants, donors, earned income, government contracts",
+                "Ability to build relationshpis with and advise senior management", "understand the separation and overlap of Board and Management duties",
+                "Ability to provide input on/approve ED compensation and performance", "Comfortable working with all types of diverse talent and all types of stakeholders",
+                "Passion for the nonprofit's mission. Possess/willing to acquire domain knowledge about programs and communities served",
+                "NULL", "Ability to respond to social and political issues", "Understanding of social issues and other ESG issues", "Ability to identify and develop risk mitigation strategies",
+                "Ability to use current technologies and understanding of their impact on operating models", "Energy, tools and network to find a board match"];
+            var questionLabel = document.createElement("label");
+            questionLabel.innerHTML = "2. Please check all applicable " + val + " company experience you have:";
+            var br = document.createElement("br");
+            container.appendChild(questionLabel);
+            container.appendChild(br);
+
+            if (val == "private") {
+                var questionForm = document.createElement("form");
+                for (let i = 0; i < experience.length; i++) {
+                    if (privateQuestions[i] != "NULL") {
+                        var input = document.createElement("input");
+                        var label = document.createElement("label");
+                        var br = document.createElement("br");
+                        input.type = "checkbox";
+                        input.name = experience[i];
+                        label.innerHTML = privateQuestions[i];
+                        questionForm.appendChild(input);
+                        questionForm.appendChild(label);
+                        questionForm.appendChild(br);
+                    }
+                }
+                br = document.createElement("br");
+                questionForm.appendChild(br);
+
+                var submit = document.createElement("input");
+                submit.setAttribute("type", "submit");
+                submit.setAttribute("value", "Submit");
+                questionForm.appendChild(submit);
+                container.appendChild(questionForm);
+
+            } else if (val == "nonprofit") {
+                var questionForm = document.createElement("form");
+                questionForm.setAttribute("action", "./nonprofit.html");
+                for (let i = 0; i < experience.length; i++) {
+                    if (nonprofitExperience[i] != "NULL") {
+                        var input = document.createElement("input");
+                        var label = document.createElement("label");
+                        var br = document.createElement("br");
+                        input.type = "checkbox";
+                        input.name = experience[i];
+                        label.innerHTML = nonprofitExperience[i];
+                        questionForm.appendChild(input);
+                        questionForm.appendChild(label);
+                        questionForm.appendChild(br);
+                    }
+                }
+
+                var br = document.createElement("br");
+                questionForm.appendChild(br);
+                var questionLabel = document.createElement("label");
+                questionLabel.innerHTML = "3. Please check all applicable " + val + " company skills you have:";
+                br = document.createElement("br");
+                questionForm.appendChild(questionLabel);
+                questionForm.appendChild(br);
+
+
+
+                for (let k = 0; k < coreskills.length; k++) {
+                    if (nonprofitCore[k] != "NULL") {
+                        var input = document.createElement("input");
+                        var label = document.createElement("label");
+                        var br = document.createElement("br");
+                        input.type = "checkbox";
+                        input.name = coreskills[k];
+                        label.innerHTML = nonprofitCore[k];
+                        questionForm.appendChild(input);
+                        questionForm.appendChild(label);
+                        questionForm.appendChild(br);
+                    }
+                }
+
+                br = document.createElement("br");
+                questionForm.appendChild(br);
+
+                var submit = document.createElement("input");
+                submit.setAttribute("type", "submit");
+                submit.setAttribute("value", "Submit");
+                questionForm.appendChild(submit);
+                container.appendChild(questionForm);
+
+            } else {
+                var questionForm = document.createElement("form");
+                for (let i = 0; i < experience.length; i++) {
+                    if (publicQuestions[i] != "NULL") {
+                        var input = document.createElement("input");
+                        var label = document.createElement("label");
+                        var br = document.createElement("br");
+                        input.type = "checkbox";
+                        input.name = experience[i];
+                        label.innerHTML = publicQuestions[i];
+                        questionForm.appendChild(input);
+                        questionForm.appendChild(label);
+                        questionForm.appendChild(br);
+                    }
+                }
+                br = document.createElement("br");
+                questionForm.appendChild(br);
+
+                var submit = document.createElement("input");
+                submit.setAttribute("type", "submit");
+                submit.setAttribute("value", "Submit");
+                questionForm.appendChild(submit);
+                container.appendChild(questionForm);
+
+
+            }
+
+            return;
+        }
+
+    </script>
+</body>
+
+</html>
